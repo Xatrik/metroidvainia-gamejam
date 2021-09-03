@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public Transform respawn;
     public float dashdistance = 15f;
     public bool candash = false;
-    private bool isdashing;
+    private bool isdashing = false;
     float doubletaptime;
     KeyCode lastkeycode;
     
