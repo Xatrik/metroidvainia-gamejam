@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
             transform.position = respawn.position;
         }
 
-        if(candash == true || isdashing != true)
+        if(candash == true && isdashing != true)
         {
             dashingleft();
             dashingright();
@@ -115,7 +115,6 @@ public class Player : MonoBehaviour
     }
     IEnumerator dash (float direction)
     {
-        transform.Rotate(new Vector3(0, 0, 90 * direction)) ;
         Dashdust();
         isdashing = true;
         rb.velocity = new Vector2(rb.velocity.x, 0f);
@@ -123,7 +122,6 @@ public class Player : MonoBehaviour
         float gravity = rb.gravityScale;
         rb.gravityScale = 0f;
         yield return new WaitForSeconds(0.4f);
-        transform.Rotate(new Vector3(0, 0, -90 * direction)) ;
         isdashing = false;
         rb.gravityScale = gravity;
 
